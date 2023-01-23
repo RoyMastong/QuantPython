@@ -28,9 +28,6 @@ def epoch():
     return tr
 
 
-#冒泡算法示例
-
-
 
 
 
