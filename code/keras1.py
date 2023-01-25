@@ -51,10 +51,37 @@ def main1():
     plt.show()
 
 
+def main2():
+    model = Sequential()
+    model.add(Dense(256, input_dim=1, activation='relu'))
+    for _ in range(3):
+        model.add(Dense(256, activation='relu'))
+    model.add(Dense(1, activation='linear'))
+    model.compile(loss='mse', optimizer='rmsprop')
+    model.summary()
+    x = np.linspace(-1, 1)
+    y = np.random.random(len(x)) * 2 - 1
+    plt.figure(figsize=(10, 6))
+    plt.plot(x, y, 'ro', label='sample data')
+    for _ in range(1, 8):
+        model.fit(x, y, epochs=500, verbose=False)
+        y_ = model.predict(x)
+        MSE = ((y - y_.flatten()) ** 2).mean()
+        print(f'round {_}: MSE = {MSE:.5f}')
+        plt.plot(x, y_, '--', label=f'round {_}')
+        plt.legend()
+    plt.show()
+
+
+
+
+
+
 
 
 
 
 if __name__ == '__main__':
     # main()
-    main1()
+    # main1()
+    main2()
