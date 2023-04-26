@@ -15,6 +15,7 @@ import sqlalchemy
 import mysql.connector
 import pymysql
 import jaydebeapi
+import time
 
 
 
@@ -91,17 +92,34 @@ def sql1():
     cursor.execute("START TRANSACTION")
 
     # 每500条执行 INSERT 语句1
-    for i in range(0, len(insert_statements), 500):
-        try:
-            cursor.execute("".join(insert_statements[i:i + 500]))
-            print("执行成功", insert_statements[i:i + 500])
-        except pymysql.Error as err:
-            print(f"执行 INSERT 语句时出错: {err}", insert_statements[i:i + 500])
-            cursor.execute("ROLLBACK")
+    # for i in range(0, len(insert_statements), 500):
+    #     try:
+    #         cursor.execute("".join(insert_statements[i:i + 500]))
+    #         print("执行成功", insert_statements[i:i + 500])
+    #     except pymysql.Error as err:
+    #         print(f"执行 INSERT 语句时出错: {err}", insert_statements[i:i + 500])
+    #         cursor.execute("ROLLBACK")
 
 
     # 逐一执行 INSERT 语句
-    for insert_statement in insert_statements:
+    # for insert_statement in insert_statements:
+    #     try:
+    #         cursor.execute(insert_statement)
+    #         print("执行成功", insert_statement)
+    #     except pymysql.Error as err:
+    #         print(f"执行 INSERT 语句时出错: {err}", insert_statement)
+    #         cursor.execute("ROLLBACK")  # 回滚事务
+    #         break
+    #
+    # # 提交事务或回滚事务
+    # if cursor.rowcount == len(insert_statements):
+    #     cursor.execute("COMMIT")
+    #     print("事务已提交")
+    # else:
+    #     cursor.execute("ROLLBACK")
+    #     print("事务已回滚")
+
+    for i, insert_statement in enumerate(insert_statements):
         try:
             cursor.execute(insert_statement)
             print("执行成功", insert_statement)
@@ -110,13 +128,14 @@ def sql1():
             cursor.execute("ROLLBACK")  # 回滚事务
             break
 
-    # 提交事务或回滚事务
-    if cursor.rowcount == len(insert_statements):
-        cursor.execute("COMMIT")
-        print("事务已提交")
-    else:
-        cursor.execute("ROLLBACK")
-        print("事务已回滚")
+        # 每500条数据提交一次并休息一段时间
+        if i % 500 == 0 and i > 0:
+            time.sleep(120)  # 休息2分钟
+            cursor.execute("START TRANSACTION")
+
+    # 最后提交事务
+    cursor.execute("COMMIT")
+    print("事务已提交")
 
     # 打印结果
     print("success!")
