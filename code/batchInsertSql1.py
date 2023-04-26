@@ -17,9 +17,6 @@ import pymysql
 import jaydebeapi
 import time
 
-
-
-
 import scipy.stats as stats
 
 import scipy.optimize as opt
@@ -33,6 +30,7 @@ port = STARROCKS_MYSQL_DW.get('port')
 database = STARROCKS_MYSQL_DW.get('db')
 db_connection_str = f'mysql+pymysql://{user}:{pwd}@{host}:{port}/{database}'
 
+
 def querySql():
     # 查询语句
     sql = """
@@ -43,37 +41,7 @@ def querySql():
     print("success！")
 
 
-# def excuteSql():
-#
-#     # 建立数据库连接
-#     mydb = mysql.connector.connect(
-#         host=host,
-#         user=user,
-#         password=pwd,
-#         database=database
-#     )
-#
-#     # 获取游标对象
-#     mycursor = mydb.cursor()
-#
-#     # 定义Insert语句列表
-#     insert_statements = [
-#         "insert into tags_eu (id, name, level, parent_id, deleted, is_active, create_by, create_time, last_update_by, last_update_time, attribute_id, max_readvolume, user_impact, score, code, source, source_tag_id, cn_name, ufp_code, category) values  (23565, 'cai0241cieshiyonghusuqiu', 4, 23563, 0, 1, null, '2023-04-21 08:33:21', null, '2023-04-21 08:33:21', null, null, null, null, null, 'IPD+', 'UREQ004213', 'cai0421测试用户诉求', 'IPDP1682066000528', 'PRODUCT_EXPERIENCE')"
-#         # ...添加更多Insert语句...
-#     ]
-#
-#     # 循环执行Insert语句
-#     for statement in insert_statements:
-#         mycursor.execute(statement)
-#
-#     # 提交更改
-#     mydb.commit()
-#
-#     # 关闭数据库连接
-#     mydb.close()
-
-
-def sql1():
+def starrocksInsertSql():
     conn = pymysql.connect(host=host,
                            user=user,
                            password=pwd,
@@ -90,34 +58,6 @@ def sql1():
 
     # 开始事务
     cursor.execute("START TRANSACTION")
-
-    # 每500条执行 INSERT 语句1
-    # for i in range(0, len(insert_statements), 500):
-    #     try:
-    #         cursor.execute("".join(insert_statements[i:i + 500]))
-    #         print("执行成功", insert_statements[i:i + 500])
-    #     except pymysql.Error as err:
-    #         print(f"执行 INSERT 语句时出错: {err}", insert_statements[i:i + 500])
-    #         cursor.execute("ROLLBACK")
-
-
-    # 逐一执行 INSERT 语句
-    # for insert_statement in insert_statements:
-    #     try:
-    #         cursor.execute(insert_statement)
-    #         print("执行成功", insert_statement)
-    #     except pymysql.Error as err:
-    #         print(f"执行 INSERT 语句时出错: {err}", insert_statement)
-    #         cursor.execute("ROLLBACK")  # 回滚事务
-    #         break
-    #
-    # # 提交事务或回滚事务
-    # if cursor.rowcount == len(insert_statements):
-    #     cursor.execute("COMMIT")
-    #     print("事务已提交")
-    # else:
-    #     cursor.execute("ROLLBACK")
-    #     print("事务已回滚")
 
     for i, insert_statement in enumerate(insert_statements):
         try:
@@ -145,11 +85,10 @@ def sql1():
     conn.close()
 
 
-
 if __name__ == '__main__':
     start_time = datetime.now()
     print("开始时间：", start_time)
-    sql1()
+    starrocksInsertSql()
     end_time = datetime.now()
     print("结束时间：", end_time)
     print('定制化需求耗时：', end_time - start_time)
