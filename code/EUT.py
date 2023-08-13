@@ -58,6 +58,7 @@ def main():
     print(opt)
     print(result)
     print("hello world陈俊琦")
+    print("1234t532")
 
 
 if __name__ == '__main__':
