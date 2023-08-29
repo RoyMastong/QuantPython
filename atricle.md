@@ -2,7 +2,7 @@
 The world today produces 
 more data and more analyses designed to 
 influence us than ever before.
-dy:94871527482/webobobo/shnsjf777/wzh2002101/1080081140/59627699238/82647785/JUAN0120./61657122886/kyut567(ins:x_zhuzhuu)/5848684
+dy:94871527482/webobobo/shnsjf777/wzh2002101/1080081140/59627699238/82647785/JUAN0120./61657122886/kyut567(ins:x_zhuzhuu)/5848684/3510520.yu/ins:blairflyfree(不再逃公主)
 tj351052642/zhongfangfang/gaoyue/caoxueqin/yaoyao/luoxinchen/lisiyi/678836080/Adios/huaduotongxue/
 Given the growing importance of decisions and opinions based on data in almost every industry, advanced statistical knowledge will help me effectively and efficiently use the proper methods to collect and analyse the data and to understand a subject or industry much more deeply. 
 To me, it is an exciting field of discovery, learning, and challenging my assumptions. 
