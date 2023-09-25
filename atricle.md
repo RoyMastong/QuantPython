@@ -3,7 +3,7 @@ The world today produces
 more data and more analyses designed to 
 influence us than ever before.
 dy:94871527482/webobobo/shnsjf777/wzh2002101/1080081140/59627699238/82647785/JUAN0120./61657122886/kyut567(ins:x_zhuzhuu)/5848684/3510520.yu/ins:blairflyfree(不再逃公主)
-tj351052642/zhongfangfang/gaoyue/caoxueqin/yaoyao/luoxinchen/lisiyi/678836080/Adios/huaduotongxue/
+tj351052642/zhongfangfang/gaoyue/caoxueqin/yaoyao/luoxinchen/lisiyi/678836080/Adios/huaduotongxue（yp328014285）/
 Given the growing importance of decisions and opinions based on data in almost every industry, advanced statistical knowledge will help me effectively and efficiently use the proper methods to collect and analyse the data and to understand a subject or industry much more deeply. 
 To me, it is an exciting field of discovery, learning, and challenging my assumptions. 
 Having studied Applied Statistics for four years, I have a solid and increasing interest in this chosen field, and I am eager to receive more vocational training in applied statistics and to gain problem solving and high numeracy skills widely sought after in the commercial sector, and to be able to use statistical software expertly, 
