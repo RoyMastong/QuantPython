@@ -47,7 +47,7 @@ def askForStructuredOutput():
     prompt = f"""
     Generate a list of three made-up book titles along\
     with their authors and genres. Provide them in JSON format with the following keys:
-    book_id, title, author, genre.
+    book_id, title, author, genre. Results are displayed in Chinese.
     """
     response = get_completion(prompt)
     print(response)
@@ -93,7 +93,7 @@ def askForSatisfyCondition(prompt=None):
     """
 
     response = get_completion(prompt)
-    print("Completion for Text 1:")
+    print("Completion for Text 2:")
     print(response)
 
 
@@ -171,7 +171,39 @@ def giveModelThinkTime(prompt=None):
     print(response)
 
 
-def solveProblemByYourselfFirstly(prompt=None):
+def studentSolution():
+    prompt = """
+    Determine if the student's solution is correct or not.
+
+    Question:
+
+    I'm building a solar power installation and I need \
+     help working out the financials.
+
+    - Land costs $100 / square foot
+
+    - I can buy solar panels for $250 / square foot
+
+    - I negotiated a contract for maintenance that will cost \
+     me a flat $100k per year, and an additional $10 / square \
+      foot What is the total cost for the first year of operations as a function of the number of square feet.
+      
+    Student's solution:
+    Let x be the size of the installation in square feet. Costs:
+
+    1. Land cost: 100x
+
+    2. Solar panel cost: 250x
+
+    3. Maintenance cost: 100,000 + 100x
+
+    Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000
+    """
+
+    response = get_completion(prompt)
+    print(response)
+
+def solveProblemByYourselfFirstly():
     prompt = """
     Your task is to determine if the student's solution \
      is correct or not.
@@ -228,13 +260,18 @@ def solveProblemByYourselfFirstly(prompt=None):
 
     2. Solar panel cost: 250x
 
-    3. Maintenance cost: 100,000 + 100x
+    3. Maintenance cost: 100000 + 100x
 
-    Total cost: 100x + 250x + 100,000 + 100x = 450x + 100,000 
+    Total cost: 100x + 250x + 100000 + 100x = 450x + 100000 
     ``` 
     Actual solution:
     
     """
+    response = get_completion(prompt)
+    print(response)
+
+def limitation():
+    prompt = f""" 告诉我关于蔚来汽车公司的Model3车型 """
     response = get_completion(prompt)
     print(response)
 
@@ -251,7 +288,9 @@ if __name__ == '__main__':
     # askForSatisfyCondition()
     # fewTaskPrompt()
     # giveModelThinkTime()
-    solveProblemByYourselfFirstly()
+    # studentSolution()
+    # solveProblemByYourselfFirstly()
+    limitation()
 
 
 
