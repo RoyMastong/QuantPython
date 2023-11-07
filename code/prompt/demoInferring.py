@@ -8,6 +8,7 @@ import time
 
 import openai
 import os
+import datatable
 
 from dotenv import load_dotenv, find_dotenv
 
