@@ -34,6 +34,7 @@ def useDataTableReadCsv(path):
     # trans datatable to pandas dataframe
     # df = df.to_pandas()
     print(df.head())
+    return df
 
 
 if __name__ == '__main__':
